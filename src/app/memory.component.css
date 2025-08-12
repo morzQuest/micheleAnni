@@ -1,0 +1,62 @@
+.card {
+  position: relative;
+  width: clamp(90px, 12.5vw, 140px); /* responsiv, aber nicht zu klein/groß */
+  aspect-ratio: 1 / 1;               /* immer quadratisch */
+  border-radius: 12px;
+  perspective: 800px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.card .front, .card .back {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  border-radius: inherit;
+  transition: transform .35s ease;
+  backface-visibility: hidden;
+}
+
+.card .front {
+  background:#0f172a;
+  border:1px solid #ffffff22;
+  transform: rotateY(0);
+  color:#93a1b3;
+}
+
+.card .back  {
+  background:#0b1220;             /* dunkler Hintergrund für "Letterboxing" */
+  border:1px solid #22d3ee66;
+  transform: rotateY(180deg);
+  overflow:hidden;
+}
+
+.card.flipped .front { transform: rotateY(-180deg); }
+.card.flipped .back  { transform: rotateY(0); }
+
+/* Bild vollständig zeigen (keine Beschneidung) */
+.card .back img{
+  width:100%; height:100%; display:block;
+  object-fit: contain;              /* zeigt das ganze Bild, ggf. mit Rändern */
+  border-radius: inherit;           /* folgt den Ecken der Karte */
+  filter: none;                     /* kein Blur */
+}
+
+/* Grid (optional, falls noch nicht gesetzt) */
+.grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; justify-items:center; }
+
+/* Tanzende Schildkröte im Gewinn-Overlay */
+.turtle{
+  font-size:64px;
+  display:inline-block;
+  animation: turtle-dance 1.1s ease-in-out infinite;
+  transform-origin: 50% 70%;        /* wirkt natürlicher */
+}
+
+@keyframes turtle-dance{
+  0%   { transform: translateY(0)  rotate(0deg) scale(1); }
+  20%  { transform: translateY(-6px) rotate(-8deg) scale(1.05); }
+  40%  { transform: translateY(0)  rotate(0deg)  scale(1); }
+  60%  { transform: translateY(-6px) rotate(8deg)  scale(1.05); }
+  80%  { transform: translateY(0)  rotate(0deg)  scale(1); }
+  100% { transform: translateY(0)  rotate(0deg)  scale(1); }
+}

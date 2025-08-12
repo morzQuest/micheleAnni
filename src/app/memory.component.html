@@ -1,0 +1,27 @@
+<!-- src/app/memory.component.html -->
+<div class="topbar">
+  <div>Züge: {{moves()}}</div>
+  <button class="btn" (click)="reset()">Nochmal mischen</button>
+</div>
+
+<div class="grid">
+  <button class="card"
+          *ngFor="let c of cards(); let i = index"
+          [class.flipped]="c.flipped || c.matched"
+          (click)="clickCard(i)"
+          [disabled]="c.matched">
+    <span class="front">?</span>
+    <span class="back">
+      <img [src]="c.src" alt="" />
+    </span>
+  </button>
+</div>
+
+<div class="overlay" *ngIf="solved()">
+  <div class="modal">
+    <div class="turtle">🐢</div>
+    <h2>Geschafft!</h2>
+    <p>Alle Paare gefunden 🎉</p>
+    <button class="btn" (click)="reset()">Nochmal spielen</button>
+  </div>
+</div>

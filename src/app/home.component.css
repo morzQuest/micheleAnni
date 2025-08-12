@@ -1,0 +1,18 @@
+.home-host{ position: relative; min-height: 80vh; }
+.glass-circle{ position:absolute; border-radius:50%; overflow:hidden; box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 18px 60px rgba(0,0,0,.35); }
+.glass-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none; /* Kein Blur */
+  border-radius: 50%;
+}
+.glass{
+  position:absolute; inset:0;
+  /* KEIN backdrop-filter mehr */
+  background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); /* feiner Glasrand */
+  pointer-events: none;
+}
+.shine{ position:absolute; left:-20%; top:-30%; width:140%; height:60%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.65), rgba(255,255,255,0) 60%); transform: rotate(-15deg); }
+.center-text{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); text-align:center; color:#e5e7eb; background:rgba(15,23,42,.55); padding:16px 20px; border-radius:16px; border:1px solid rgba(255,255,255,.12); box-shadow:0 20px 60px rgba(0,0,0,.35); }

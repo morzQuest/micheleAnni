@@ -1,0 +1,29 @@
+
+<div #host class="home-host">
+
+  <div #centerBox class="center-text">
+    <h1>Hoi Michi 🌞</h1>
+    <p>
+      Dieses Jahr können wir leider nicht zusammen sein an unserem Jahrestag, dashalb bekommst du diese Website hier.
+      Nerdy aber vom Herzen und hoffentlich etwas, das dich an mich denken lässt.
+      Ich schätze die letzten 2 Jahre die ich mit dir verbringen durfte, alle Tiefs und Hochs, Lachflashes und Tränen
+       und die unglaublich schlechten Dad-Jokes von uns beiden. <br>
+      Ich lerne so viel von und mit dir und hoffe dass wir noch weiter gemeinsam wachsen können.
+      Egal ob als Freund, Foodie, Partner oder Motivator 🌈 <br>
+      Ti amo und auf viele weitere gemeinsame Jahre ❤️✨<br>
+    Deine (vermutliche angetrunkene) Mursal
+<br>
+    P.S.: Unter "Gallery" erwartet dich noch ein kleines Spiel</p>
+  </div>
+
+
+<!-- bewegliche Glas-Kreise -->
+  <div class="glass-circle" *ngFor="let b of bubbles"
+       [style.width.px]="b.r*2" [style.height.px]="b.r*2"
+       [style.left.px]="b.x - b.r" [style.top.px]="b.y - b.r">
+    <img [src]="b.src" alt="" />
+    <div class="glass"></div>
+    <div class="shine"></div>
+  </div>
+</div>
+  <!-- zentrale Textbox -->

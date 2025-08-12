@@ -1,0 +1,8 @@
+<div class="card">
+  <h2 style="margin-top:0">Galerie – Placeholder-Figuren</h2>
+  <div class="grid">
+    <div *ngFor="let it of items" appWobble>
+      <app-placeholder-figure [seed]="it.seed" style="width:100%; height:220px; display:block"></app-placeholder-figure>
+    </div>
+  </div>
+</div>
